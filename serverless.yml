@@ -42,7 +42,7 @@ custom:
   region: ${opt:region, self:provider.region}
   ListingsDB: ${self:custom.stage}-listings
   BookingsDB: ${self:custom.stage}-bookings
-  QueueName: ${self:provider.environment.queue_name}-${self:provider.stage}
+  
 
   tableThroughputs:
     prod: 1
@@ -72,7 +72,6 @@ functions:
           integration: lambda-proxy
 
 resources:
-  - ${file(resources/sqs-queue.yml)}
   - ${file(resources/table.yml)}
   - ${file(resources/s3-bucket.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
