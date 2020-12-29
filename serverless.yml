@@ -55,19 +55,19 @@ custom:
 
 functions:
   graphql:
-    handler: src/graphql.graphqlHandler
+    handler: src/graphql.js
     environment:
       SLS_DEBUG: true
     events:
       - http:
           path: graphql
-          method: post
+          method: Post
           cors: true
           integration: lambda-proxy
 
       - http:
           path: graphql
-          method: get
+          method: Get
           cors: true
           integration: lambda-proxy
 
