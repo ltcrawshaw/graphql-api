@@ -75,7 +75,5 @@ resources:
   - ${file(resources/s3-bucket.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
   - ${file(resources/cognito-user-pool.yml)}
-  # events:
-  #     - sqs:
-  #         arn: "arn:aws:sqs:${self:provider.environment.region}:${self:provider.environment.account}:${self:provider.environment.quque_name}-${self:provider.stage}"
-  #         batchSize: 1
+  - ${file(resources/listing-db.yml)}
+  - ${file(resources/bookingDB.yml)}
