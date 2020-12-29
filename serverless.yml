@@ -6,6 +6,34 @@ plugins:
   - serverless-bundle
   - serverless-offline
   - serverless-dotenv-plugin
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-east-1
+  profile: personalAccount
+  environment:
+    BookingsDB: ${self:custom.BookingsDB}
+    ListingsDB: ${self:custom.ListingsDB}
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:GetRecords
+        - dynamodb:GetShardIterator
+        - dynamodb:DescribeStream
+        - dynamodb:ListStream
+
+      Resource:
+        - "Fn::GetAtt": [ListingsDB, Arn]
+        - "Fn::GetAtt": [BookingsDB, Arn]
 
 # serverless-webpack configuration
 # Enable auto-packing of external modules
