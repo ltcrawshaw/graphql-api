@@ -2,4 +2,4 @@ Resources:
   NameOfQueue:
     Type: "AWS::SQS::Queue"
     Properties:
-      QueueName: ${self:provider.environment.queu_name}-${self:provider.stage}
+      QueueName: ${self:provider.environment.queue_name}-${self:provider.stage}

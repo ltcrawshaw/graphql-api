@@ -42,7 +42,7 @@ custom:
   region: ${opt:region, self:provider.region}
   ListingsDB: ${self:custom.stage}-listings
   BookingsDB: ${self:custom.stage}-bookings
-  QueueName: ${self:provider.environment.queu_name}-${self:provider.stage}
+  QueueName: ${self:provider.environment.queue_name}-${self:provider.stage}
 
   tableThroughputs:
     prod: 1
