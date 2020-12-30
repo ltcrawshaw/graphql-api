@@ -55,7 +55,7 @@ custom:
 
 functions:
   graphql:
-    handler: src/graphql.js
+    handler: src/graphql.graphqlHandler
     environment:
       SLS_DEBUG: true
     events:
